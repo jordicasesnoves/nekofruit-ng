@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
+import { HomeViewComponent } from './containers/home-view/home-view.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [HomeViewComponent],
   imports: [],
   providers: [],
   bootstrap: [],
