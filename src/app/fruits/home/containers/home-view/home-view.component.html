@@ -1,1 +1,11 @@
-<app-top-selling [products]="topSellingProducts$ | async"> </app-top-selling>
+<div class="flex flex-col space-y-24">
+  <app-product-section
+    [productSectionInfo]="topSellingProductsSectionInfo"
+    [products]="topSellingProducts$ | async"
+  ></app-product-section>
+
+  <app-product-section
+    [productSectionInfo]="newProductsSectionInfo"
+    [products]="newProducts$ | async"
+  ></app-product-section>
+</div>

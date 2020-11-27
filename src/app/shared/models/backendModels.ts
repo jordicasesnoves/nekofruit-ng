@@ -7,6 +7,7 @@ export interface Product {
   description: string;
   price_EUR: number;
   total_sales: number;
+  new_product: boolean;
 }
 
 // Without declaring 'stock' property, we're assuming that stock is unlimited (not so real)

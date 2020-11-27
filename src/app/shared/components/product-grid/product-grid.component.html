@@ -1,7 +1,5 @@
-<div *ngIf="products; else elseBlock">
-  <div *ngIf="products.length > 0; else elseBlock">
-    <div class="text-4xl font-medium mb-8">Top sellers</div>
-
+<ng-container *ngIf="products; else elseBlock">
+  <ng-container *ngIf="products.length > 0; else elseBlock">
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
     >
@@ -10,7 +8,7 @@
         [product]="product"
       ></app-product-item-card>
     </div>
-  </div>
-  <ng-template #elseBlock>No products found</ng-template>
-</div>
+  </ng-container>
+  <ng-template #elseBlock>None products found</ng-template>
+</ng-container>
 <ng-template #elseBlock>Loading...</ng-template>

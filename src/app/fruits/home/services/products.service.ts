@@ -25,4 +25,22 @@ export class ProductsService {
         catchError((err) => throwError(err))
       );
   }
+
+  getNewProducts(): Observable<Product[]> {
+    let params = new HttpParams({
+      fromObject: {
+        new_product: 'true',
+        _sort: 'name',
+        _order: 'desc',
+        _limit: '8',
+      },
+    });
+
+    return this.http
+      .get<Product[]>(`${this.baseUrl}` + `/products`, { params: params })
+      .pipe(
+        map((products) => products),
+        catchError((err) => throwError(err))
+      );
+  }
 }
