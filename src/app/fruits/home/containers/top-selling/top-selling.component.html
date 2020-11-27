@@ -1,10 +1,15 @@
 <div *ngIf="products; else elseBlock">
   <div *ngIf="products.length > 0; else elseBlock">
-    {{ products.length }} products found
-    <app-product-item-card
-      *ngFor="let product of products"
-      [product]="product"
-    ></app-product-item-card>
+    <div class="text-4xl font-medium mb-8">Top sellers</div>
+
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+    >
+      <app-product-item-card
+        *ngFor="let product of products"
+        [product]="product"
+      ></app-product-item-card>
+    </div>
   </div>
   <ng-template #elseBlock>No products found</ng-template>
 </div>

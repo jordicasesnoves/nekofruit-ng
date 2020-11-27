@@ -1,3 +1,25 @@
-<div *ngIf="product">
-  {{ product.id }}
-</div>
+<ng-container *ngIf="product">
+  <div
+    class="shadow-md border border-gray-100 px-6 py-4 rounded-lg flex flex-col space-y-4"
+  >
+    <div class="flex flex-col">
+      <span class="text-lg font-medium">{{ product.name }}</span>
+      <span class="text-gray-500">{{ product.description }}</span>
+    </div>
+    <div class="flex items-center justify-between">
+      <div class="text-2xl font-medium">{{ product.price_EUR }} €</div>
+      <button class="text-white bg-primary rounded-full p-1">
+        <svg
+          class="h-6 w-auto"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="currentColor"
+            d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</ng-container>
