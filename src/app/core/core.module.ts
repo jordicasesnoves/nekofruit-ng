@@ -8,6 +8,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 @NgModule({
   declarations: [AppComponent, HeaderComponent, PageNotFoundComponent],
   imports: [CommonModule, AppRoutingModule],
+  exports: [],
   providers: [],
   bootstrap: [],
 })

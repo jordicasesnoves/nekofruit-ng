@@ -1,40 +1,48 @@
-<div class="flex flex-col space-y-8">
-  <div class="text-4xl font-medium">Catalog page {{ this.currentPage }}</div>
+<ng-container *ngIf="this.loading == false; else elseBlock">
+  <div class="flex flex-col space-y-8">
+    <ng-container *ngIf="this.currentPage <= this.totalPages; else elseBlock">
+      <div class="text-4xl font-medium">
+        Catalog page {{ this.currentPage }}
+      </div>
 
-  <app-product-grid
-    [productsPerPage]="productsPerPage"
-    [currentPage]="currentPage"
-    [products]="catalogProducts$ | async"
-  ></app-product-grid>
+      <app-product-grid
+        [productsPerPage]="productsPerPage"
+        [currentPage]="currentPage"
+        [products]="catalogProducts$ | async"
+      ></app-product-grid>
 
-  <ng-container *ngIf="this.totalProducts">
-    <div>
-      Showing
-      <span class="font-medium">{{
-        this.productsPerPage * (this.currentPage - 1) + 1
-      }}</span>
-      to
-      <span class="font-medium">{{
-        this.productsPerPage * this.currentPage
-      }}</span>
-      of <span class="font-medium">{{ this.totalProducts }}</span> results
-    </div>
-  </ng-container>
+      <ng-container *ngIf="this.totalProducts">
+        <div>
+          Showing
+          <span class="font-medium">{{
+            this.productsPerPage * (this.currentPage - 1) + 1
+          }}</span>
+          to
+          <span class="font-medium">{{
+            this.productsPerPage * this.currentPage
+          }}</span>
+          of <span class="font-medium">{{ this.totalProducts }}</span> results
+        </div>
+      </ng-container>
 
-  <div class="flex items-center justify-center space-x-4">
-    <button
-      (click)="onPrevPage()"
-      class="font-medium text-md bg-primary text-white py-3 px-4 rounded"
-      *ngIf="prevPage"
-    >
-      Previous page
-    </button>
-    <button
-      (click)="onNextPage()"
-      class="font-medium text-md bg-primary text-white py-3 px-4 rounded"
-      *ngIf="nextPage"
-    >
-      Next page
-    </button>
+      <div class="flex items-center justify-center space-x-4">
+        <button
+          (click)="onPrevPage()"
+          class="font-medium text-md bg-primary text-white py-3 px-4 rounded"
+          *ngIf="prevPage"
+        >
+          Previous page
+        </button>
+        <button
+          (click)="onNextPage()"
+          class="font-medium text-md bg-primary text-white py-3 px-4 rounded"
+          *ngIf="nextPage"
+        >
+          Next page
+        </button>
+      </div>
+    </ng-container>
   </div>
-</div>
+</ng-container>
+
+<ng-template #elseBlock>Loading...</ng-template>

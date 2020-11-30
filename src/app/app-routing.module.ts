@@ -19,6 +19,10 @@ const routes: Routes = [
     component: CartViewComponent,
   },
   {
+    path: '404',
+    component: PageNotFoundComponent,
+  },
+  {
     path: '**',
     component: PageNotFoundComponent,
   },

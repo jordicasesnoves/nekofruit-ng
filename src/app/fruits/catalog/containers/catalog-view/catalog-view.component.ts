@@ -21,6 +21,8 @@ export class CatalogViewComponent implements OnInit, OnDestroy {
   prevPage: number;
   nextPage: number;
 
+  loading: boolean = true;
+
   subscription: Subscription;
   subscription2: Subscription;
 
@@ -37,7 +39,7 @@ export class CatalogViewComponent implements OnInit, OnDestroy {
       this.currentPage = parseInt(params['page']);
 
       // Prevent calculating pagination when data is not ready yet
-      if (this.totalPages) {
+      if (!this.loading) {
         this.calculatePagination();
       }
     });
@@ -61,12 +63,11 @@ export class CatalogViewComponent implements OnInit, OnDestroy {
       error(err) {
         console.log(err);
       },
-      complete() {
-        console.log(this);
-      },
+      complete() {},
     });
 
     this.catalogProducts$ = this.productsService.getAllProducts();
+    this.loading = false;
   }
 
   calculatePagination(): void {
@@ -84,6 +85,10 @@ export class CatalogViewComponent implements OnInit, OnDestroy {
       // first page
       this.nextPage = this.currentPage + 1;
     }
+
+    if (this.currentPage > this.totalPages) {
+      this.redirectTo404();
+    }
   }
 
   onNextPage(): void {
@@ -96,5 +101,9 @@ export class CatalogViewComponent implements OnInit, OnDestroy {
     this.router.navigate(['/catalog'], {
       queryParams: { page: this.prevPage },
     });
+  }
+
+  redirectTo404(): void {
+    this.router.navigate(['/404']);
   }
 }
