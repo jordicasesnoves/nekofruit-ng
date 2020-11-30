@@ -3,6 +3,7 @@ import { Observable, Subscription } from 'rxjs';
 import { Product } from 'src/app/shared/models/backendModels';
 import { ProductsService } from 'src/app/shared/services/products.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { on } from 'process';
 
 @Component({
   selector: 'app-catalog-view',
@@ -16,7 +17,9 @@ export class CatalogViewComponent implements OnInit, OnDestroy {
   // Pagination data
   totalProducts: number;
   totalPages: number;
-  productsPerPage: number = 6;
+  productsPerPage: number = 8;
+  productsOnCurrentPage: number = this.productsPerPage;
+  lastRangeIndex: number;
   currentPage: number;
   prevPage: number;
   nextPage: number;
@@ -82,13 +85,22 @@ export class CatalogViewComponent implements OnInit, OnDestroy {
     } else if (onLastPage) {
       // last page
       this.prevPage = this.currentPage - 1;
+
+      this.productsOnCurrentPage =
+        this.totalProducts - this.productsPerPage * (this.currentPage - 1);
     } else {
       // first page
       this.nextPage = this.currentPage + 1;
     }
 
-    if (this.currentPage > this.totalPages) {
-      this.redirectTo404();
+    this.calcLastRangeIndex();
+  }
+
+  calcLastRangeIndex(): void {
+    if (this.productsOnCurrentPage < this.productsPerPage) {
+      this.lastRangeIndex = this.totalProducts;
+    } else {
+      this.lastRangeIndex = this.productsOnCurrentPage * this.currentPage;
     }
   }
 
