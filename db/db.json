@@ -129,5 +129,18 @@
       "new_product": false
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "product": {
+        "id": 4,
+        "name": "Apple",
+        "description": "190g piece",
+        "price_EUR": 0.29,
+        "total_sales": 232,
+        "new_product": true
+      },
+      "quantity": 1,
+      "id": 1
+    }
+  ]
 }

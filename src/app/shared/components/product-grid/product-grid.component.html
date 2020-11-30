@@ -3,11 +3,27 @@
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
     >
-      <app-product-item-card
-        *ngFor="let product of products"
-        [product]="product"
-        (newCartItem)="addCartItem($event)"
-      ></app-product-item-card>
+      <!-- Check if the grid needs to use pagination-->
+      <ng-container *ngIf="paginatedGrid; else elseBlock">
+        <app-product-item-card
+          *ngFor="
+            let product of products
+              | slice
+                : (currentPage - 1) * productsPerPage
+                : productsPerPage * currentPage
+          "
+          [product]="product"
+          (newCartItem)="addCartItem($event)"
+        ></app-product-item-card>
+      </ng-container>
+
+      <ng-template #elseBlock>
+        <app-product-item-card
+          *ngFor="let product of products"
+          [product]="product"
+          (newCartItem)="addCartItem($event)"
+        ></app-product-item-card>
+      </ng-template>
     </div>
   </ng-container>
   <ng-template #elseBlock>None products found</ng-template>

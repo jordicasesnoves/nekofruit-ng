@@ -10,12 +10,23 @@ import { Observable } from 'rxjs';
 })
 export class ProductGridComponent implements OnInit {
   @Input() products: Product[];
+  @Input() currentPage: number;
+  @Input() productsPerPage: number;
+
+  paginatedGrid: boolean;
 
   addedItemToCart$: Observable<CartItem>;
 
   constructor(private productsService: ProductsService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // Check if the grid is using pagination
+    if (this.currentPage || this.productsPerPage) {
+      this.paginatedGrid = true;
+    } else {
+      this.paginatedGrid = false;
+    }
+  }
 
   addCartItem(cartItem: CartItem): void {
     this.addedItemToCart$ = this.productsService.addItemToCart(cartItem);

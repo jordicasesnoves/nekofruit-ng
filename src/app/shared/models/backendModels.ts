@@ -15,6 +15,10 @@ export class CartItem {
   product: Product;
   quantity: number;
 }
+export class Pageable {
+  page: number;
+  limit: number;
+}
 
 // Without declaring 'stock' property, we're assuming that stock is unlimited (not so real)
 
