@@ -1,4 +1,15 @@
 <div class="flex flex-col space-y-24">
+  <div class="w-full bg-black shadow-sm rounded-lg relative">
+    <img
+      class="opacity-40 h-64 w-full object-cover rounded-lg"
+      src="https://images.unsplash.com/photo-1577303935007-0d306ee638cf?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1325&q=80"
+    />
+    <span
+      class="bottom-0 m-8 absolute text-4xl tracking-wide font-medium text-white"
+      >Get ready for christmas!</span
+    >
+  </div>
+
   <app-product-section
     [productSectionInfo]="topSellingProductsSectionInfo"
     [products]="topSellingProducts$ | async"
