@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProductItemCardComponent } from './components/product-item-card/product-item-card.component';
 import { ProductGridComponent } from './components/product-grid/product-grid.component';
 import { ProductSectionComponent } from './containers/product-section/product-section.component';
+import { ProductsService } from './services/products.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { ProductSectionComponent } from './containers/product-section/product-se
     ProductGridComponent,
     ProductSectionComponent,
   ],
-  providers: [],
+  providers: [ProductsService],
   bootstrap: [],
 })
 export class SharedModule {}

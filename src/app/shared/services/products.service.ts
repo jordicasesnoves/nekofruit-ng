@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { Product } from '../../../shared/models/backendModels';
+import { CartItem, Product } from '../models/backendModels';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class ProductsService {
     });
 
     return this.http
-      .get<Product[]>(`${this.baseUrl}` + `/products`, { params: params })
+      .get<Product[]>(`${this.baseUrl}/products`, { params: params })
       .pipe(
         map((products) => products),
         catchError((err) => throwError(err))
@@ -37,10 +37,16 @@ export class ProductsService {
     });
 
     return this.http
-      .get<Product[]>(`${this.baseUrl}` + `/products`, { params: params })
+      .get<Product[]>(`${this.baseUrl}/products`, { params: params })
       .pipe(
         map((products) => products),
         catchError((err) => throwError(err))
       );
+  }
+
+  addItemToCart(cartItem: CartItem): Observable<CartItem> {
+    return this.http
+      .post<CartItem>(`${this.baseUrl}/cart`, cartItem)
+      .pipe(catchError((err) => throwError(err)));
   }
 }

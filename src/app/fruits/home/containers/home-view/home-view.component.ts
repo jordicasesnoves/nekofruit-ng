@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/shared/models/backendModels';
 import { ProductSectionInfo } from 'src/app/shared/models/product-section';
-import { ProductsService } from '../../services/products.service';
+import { ProductsService } from '../../../../shared/services/products.service';
 
 @Component({
   selector: 'app-home-view',
