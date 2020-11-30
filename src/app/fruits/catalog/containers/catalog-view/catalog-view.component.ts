@@ -16,7 +16,7 @@ export class CatalogViewComponent implements OnInit, OnDestroy {
   // Pagination data
   totalProducts: number;
   totalPages: number;
-  productsPerPage: number = 8;
+  productsPerPage: number = 6;
   currentPage: number;
   prevPage: number;
   nextPage: number;
@@ -63,11 +63,12 @@ export class CatalogViewComponent implements OnInit, OnDestroy {
       error(err) {
         console.log(err);
       },
-      complete() {},
+      complete() {
+        that.loading = false;
+      },
     });
 
     this.catalogProducts$ = this.productsService.getAllProducts();
-    this.loading = false;
   }
 
   calculatePagination(): void {
