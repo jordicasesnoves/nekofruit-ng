@@ -10,11 +10,13 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./catalog-view.component.scss'],
 })
 export class CatalogViewComponent implements OnInit, OnDestroy {
+  // Database data
   catalogProducts$: Observable<Product[]>;
 
+  // Pagination data
   totalProducts: number;
   totalPages: number;
-  productsPerPage: number = 6;
+  productsPerPage: number = 8;
   currentPage: number;
   prevPage: number;
   nextPage: number;
@@ -34,7 +36,7 @@ export class CatalogViewComponent implements OnInit, OnDestroy {
       this.nextPage = undefined;
       this.currentPage = parseInt(params['page']);
 
-      // Prevent when data is not ready yet
+      // Prevent calculating pagination when data is not ready yet
       if (this.totalPages) {
         this.calculatePagination();
       }
@@ -69,8 +71,7 @@ export class CatalogViewComponent implements OnInit, OnDestroy {
 
   calculatePagination(): void {
     let onFirstPage: boolean = this.currentPage == 1;
-    let onLastPage: boolean =
-      this.currentPage == this.totalPages ? true : false;
+    let onLastPage: boolean = this.currentPage == this.totalPages;
 
     if (!onLastPage && !onFirstPage) {
       // between first and last page
