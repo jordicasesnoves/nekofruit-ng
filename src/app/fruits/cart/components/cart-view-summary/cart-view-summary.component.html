@@ -1,0 +1,19 @@
+<ng-container *ngIf="cartItems; else elseBlock">
+  <ng-container *ngIf="cartItems.length > 0; else elseBlock">
+    <div class="flex flex-col space-y-8">
+      <div class="flex items-end space-x-4">
+        <span class="text-4xl font-medium">Cart</span>
+        <span class="text-gray-500 text-lg"
+          >({{ cartItems.length }} products)</span
+        >
+      </div>
+      <app-cart-item
+        *ngFor="let item of cartItems"
+        [item]="item"
+      ></app-cart-item>
+    </div>
+  </ng-container>
+  <ng-template #elseBlock> No cart items found </ng-template>
+</ng-container>
+
+<ng-template #elseBlock> Loading... </ng-template>

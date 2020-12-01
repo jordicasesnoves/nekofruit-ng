@@ -32,7 +32,9 @@ export class ProductGridComponent implements OnInit {
     this.addedItemToCart$ = this.productsService.addItemToCart(cartItem);
     this.addedItemToCart$.subscribe({
       next(cartItem) {
-        alert(`${cartItem.quantity} ${cartItem.product.name} added to cart!`);
+        alert(
+          `1 ${cartItem.product.name} added to cart. Total added: ${cartItem.quantity} `
+        );
       },
       error(msg) {
         console.log(msg);

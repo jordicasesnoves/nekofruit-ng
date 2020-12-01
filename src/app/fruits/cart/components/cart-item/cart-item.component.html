@@ -1,0 +1,25 @@
+<ng-container *ngIf="item">
+  <div class="flex flex-row items-center space-x-4 h-full">
+    <div>
+      <img
+        class="h-32 w-auto"
+        src="https://prod-mercadona.imgix.net/images/52a4d34c92d6aeeb8c9a8892a3c8f769.jpg?fit=crop&h=600&w=600"
+        alt=""
+      />
+    </div>
+
+    <div class="flex flex-col space-y-4 justify-between">
+      <div>
+        <div class="flex space-x-2 items-center">
+          <span class="text-lg font-medium">{{ item.product.name }}</span>
+          <span class="text-gray-500">({{ item.product.description }})</span>
+        </div>
+        <div class="text-gray-500">{{ item.product.price_EUR }} € /piece</div>
+      </div>
+
+      <span class="text-xl font-medium"
+        >{{ item.quantity * item.product.price_EUR }} €</span
+      >
+    </div>
+  </div>
+</ng-container>

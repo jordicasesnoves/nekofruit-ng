@@ -108,4 +108,11 @@ export class ProductsService {
         catchError((err) => throwError(err))
       );
   }
+
+  getCartItems(): Observable<CartItem[]> {
+    return this.http.get<CartItem[]>(`${this.baseUrl}/cart`).pipe(
+      map((cartItems) => cartItems),
+      catchError((err) => throwError(err))
+    );
+  }
 }

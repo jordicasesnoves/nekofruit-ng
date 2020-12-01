@@ -5,18 +5,19 @@ import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './core/containers/app-component/app.component';
 import { HomeModule } from './fruits/home/home.module';
-import { CartViewComponent } from './fruits/cart/containers/cart-view/cart-view.component';
 import { SharedModule } from './shared/shared.module';
 import { CatalogModule } from './fruits/catalog/catalog.module';
+import { CartModule } from './fruits/cart/cart.module';
 
 @NgModule({
-  declarations: [CartViewComponent],
+  declarations: [],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule,
     HomeModule,
     CatalogModule,
+    CartModule,
     SharedModule,
   ],
   providers: [],

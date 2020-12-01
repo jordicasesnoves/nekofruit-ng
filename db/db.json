@@ -139,7 +139,7 @@
         "total_sales": 232,
         "new_product": true
       },
-      "quantity": 4,
+      "quantity": 5,
       "id": 1
     },
     {
@@ -153,6 +153,18 @@
       },
       "quantity": 2,
       "id": 2
+    },
+    {
+      "product": {
+        "id": 16,
+        "name": "Mango",
+        "description": "550g piece",
+        "price_EUR": 1.29,
+        "total_sales": 1010,
+        "new_product": false
+      },
+      "quantity": 5,
+      "id": 3
     }
   ]
 }
