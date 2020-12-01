@@ -19,7 +19,10 @@
         {{ item.quantity * item.product.price_EUR }} €
       </span>
       <div class="flex space-x-2">
-        <button class="text-white bg-red-500 rounded-full p-1">
+        <button
+          (click)="onRemoveItemQuantity(item)"
+          class="text-white bg-red-500 rounded-full p-1"
+        >
           <svg
             class="h-4 w-4"
             xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +35,10 @@
           </svg>
         </button>
         <span class="text-gray-500">{{ item.quantity }}</span>
-        <button class="text-white bg-primary rounded-full p-1">
+        <button
+          (click)="onAddItemQuantity(item)"
+          class="text-white bg-primary rounded-full p-1"
+        >
           <svg
             class="h-4 w-4"
             xmlns="http://www.w3.org/2000/svg"

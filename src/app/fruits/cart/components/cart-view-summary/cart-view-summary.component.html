@@ -11,6 +11,8 @@
         <app-cart-item
           *ngFor="let item of cartItems"
           [item]="item"
+          (addedItemQuantity)="addItemQuantity($event)"
+          (removedItemQuantity)="removeItemQuantity($event)"
         ></app-cart-item>
       </div>
       <div class="w-1/3">

@@ -156,7 +156,7 @@
         "new_product": false,
         "image_url": "https://prod-mercadona.imgix.net/images/ee3e71e5011511764af6ba3edc41f4d2.jpg?fit=crop&h=600&w=600"
       },
-      "quantity": 1,
+      "quantity": 82,
       "id": 1
     },
     {
@@ -169,7 +169,7 @@
         "new_product": false,
         "image_url": "https://prod-mercadona.imgix.net/images/0e0431fbcd08dac4b7df7dd034760193.jpg?fit=crop&h=600&w=600"
       },
-      "quantity": 1,
+      "quantity": 6,
       "id": 2
     },
     {
@@ -182,7 +182,7 @@
         "new_product": true,
         "image_url": "https://prod-mercadona.imgix.net/images/69edef3541bbf3f4b7173c9d617a5698.jpg?fit=crop&h=600&w=600"
       },
-      "quantity": 1,
+      "quantity": 5,
       "id": 3
     }
   ]

@@ -1,13 +1,18 @@
 import {
   Component,
+  EventEmitter,
   Input,
   OnChanges,
   OnInit,
+  Output,
   SimpleChange,
   SimpleChanges,
 } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 import { CartItem } from 'src/app/shared/models/backendModels';
+import { ProductsService } from 'src/app/shared/services/products.service';
 
 @Component({
   selector: 'app-cart-view-summary',
@@ -19,7 +24,11 @@ export class CartViewSummaryComponent implements OnInit, OnChanges {
   loading: boolean = true;
   total: number = 0;
 
-  constructor() {}
+  // Outputs from cart-item component
+  addedItemQuantity$: Observable<CartItem>;
+  removedItemQuantity$: Observable<CartItem>;
+
+  constructor(private productsService: ProductsService) {}
 
   ngOnInit(): void {}
 
@@ -36,4 +45,22 @@ export class CartViewSummaryComponent implements OnInit, OnChanges {
     });
     this.total = Math.round(this.total * 100) / 100;
   }
+
+  addItemQuantity(cartItem: CartItem): void {
+    let that = this;
+    this.addedItemQuantity$ = this.productsService.addItemToCart(cartItem);
+    this.addedItemQuantity$.subscribe({
+      next(cartItem) {
+        // Refresh data
+        let index = that.cartItems.map((item) => item.id).indexOf(cartItem.id);
+        that.cartItems[index].quantity = cartItem.quantity;
+        that.total = that.total + that.cartItems[index].product.price_EUR;
+      },
+      error(msg) {
+        console.log(msg);
+      },
+      complete() {},
+    });
+  }
+  removeItemQuantity(cartItem: CartItem): void {}
 }
