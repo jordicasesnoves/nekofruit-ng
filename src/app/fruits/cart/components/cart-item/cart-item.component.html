@@ -1,14 +1,12 @@
 <ng-container *ngIf="item">
   <div class="flex flex-row items-center space-x-4 h-full">
-    <div>
-      <img
-        class="h-32 w-auto"
-        src="https://prod-mercadona.imgix.net/images/52a4d34c92d6aeeb8c9a8892a3c8f769.jpg?fit=crop&h=600&w=600"
-        alt=""
-      />
-    </div>
+    <img
+      class="h-32 w-auto"
+      src="https://prod-mercadona.imgix.net/images/52a4d34c92d6aeeb8c9a8892a3c8f769.jpg?fit=crop&h=600&w=600"
+      alt=""
+    />
 
-    <div class="flex flex-col space-y-4 justify-between">
+    <div class="flex flex-1 flex-col justify-between h-24">
       <div>
         <div class="flex space-x-2 items-center">
           <span class="text-lg font-medium">{{ item.product.name }}</span>
@@ -17,9 +15,40 @@
         <div class="text-gray-500">{{ item.product.price_EUR }} € /piece</div>
       </div>
 
-      <span class="text-xl font-medium"
-        >{{ item.quantity * item.product.price_EUR }} €</span
-      >
+      <span class="text-gray-500">Remove</span>
+    </div>
+
+    <div class="h-16 flex flex-col justify-between items-end">
+      <span class="text-xl font-medium">
+        {{ item.quantity * item.product.price_EUR }} €
+      </span>
+      <div class="flex space-x-2">
+        <button class="text-white bg-red-500 rounded-full p-1">
+          <svg
+            class="h-4 w-4"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="currentColor"
+              d="M19,11H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z"
+            />
+          </svg>
+        </button>
+        <span class="text-gray-500">{{ item.quantity }}</span>
+        <button class="text-white bg-primary rounded-full p-1">
+          <svg
+            class="h-4 w-4"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="currentColor"
+              d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </ng-container>
