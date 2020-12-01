@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
+
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
 
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -8,6 +11,8 @@ import { HomeModule } from './fruits/home/home.module';
 import { SharedModule } from './shared/shared.module';
 import { CatalogModule } from './fruits/catalog/catalog.module';
 import { CartModule } from './fruits/cart/cart.module';
+
+registerLocaleData(localeEs, 'es');
 
 @NgModule({
   declarations: [],
@@ -20,7 +25,12 @@ import { CartModule } from './fruits/cart/cart.module';
     CartModule,
     SharedModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'es-ES',
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

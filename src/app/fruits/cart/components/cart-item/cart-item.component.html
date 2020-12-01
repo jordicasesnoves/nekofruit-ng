@@ -8,7 +8,9 @@
           <span class="text-lg font-medium">{{ item.product.name }}</span>
           <span class="text-gray-500">({{ item.product.description }})</span>
         </div>
-        <div class="text-gray-500">{{ item.product.price_EUR }} € /piece</div>
+        <div class="text-gray-500">
+          {{ item.product.price_EUR | currency: "EUR":"symbol":"1.2-2" }} /piece
+        </div>
       </div>
 
       <span class="text-gray-500">Remove</span>
@@ -16,7 +18,10 @@
 
     <div class="h-16 flex flex-col justify-between items-end">
       <span class="text-xl font-medium">
-        {{ item.quantity * item.product.price_EUR }} €
+        {{
+          item.quantity * item.product.price_EUR
+            | currency: "EUR":"symbol":"1.2-2"
+        }}
       </span>
       <div class="flex space-x-2">
         <button

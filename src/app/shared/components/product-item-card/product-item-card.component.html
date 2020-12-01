@@ -8,7 +8,9 @@
       <span class="text-gray-500">{{ product.description }}</span>
     </div>
     <div class="flex items-center justify-between">
-      <div class="text-2xl font-medium">{{ product.price_EUR }} €</div>
+      <div class="text-2xl font-medium">
+        {{ product.price_EUR | currency: "EUR":"symbol":"1.2-2" }}
+      </div>
       <button
         (click)="onAddCartItem(product)"
         class="text-white bg-primary rounded-full p-1"
