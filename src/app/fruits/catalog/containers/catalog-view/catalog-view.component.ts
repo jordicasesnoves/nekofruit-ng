@@ -31,8 +31,7 @@ export class CatalogViewComponent implements OnInit, OnDestroy {
 
   constructor(
     private productsService: ProductsService,
-    private route: ActivatedRoute,
-    private router: Router
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -102,21 +101,5 @@ export class CatalogViewComponent implements OnInit, OnDestroy {
     } else {
       this.lastRangeIndex = this.productsOnCurrentPage * this.currentPage;
     }
-  }
-
-  onNextPage(): void {
-    this.router.navigate(['/catalog'], {
-      queryParams: { page: this.nextPage },
-    });
-  }
-
-  onPrevPage(): void {
-    this.router.navigate(['/catalog'], {
-      queryParams: { page: this.prevPage },
-    });
-  }
-
-  redirectTo404(): void {
-    this.router.navigate(['/404']);
   }
 }
