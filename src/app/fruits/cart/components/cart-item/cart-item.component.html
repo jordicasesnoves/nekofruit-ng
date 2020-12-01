@@ -1,10 +1,6 @@
 <ng-container *ngIf="item">
   <div class="flex flex-row items-center space-x-4 h-full">
-    <img
-      class="h-32 w-auto"
-      src="https://prod-mercadona.imgix.net/images/52a4d34c92d6aeeb8c9a8892a3c8f769.jpg?fit=crop&h=600&w=600"
-      alt=""
-    />
+    <img class="h-32 w-auto" [src]="item.product.image_url" alt="" />
 
     <div class="flex flex-1 flex-col justify-between h-24">
       <div>

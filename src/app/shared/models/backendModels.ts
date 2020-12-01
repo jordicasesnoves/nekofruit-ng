@@ -8,6 +8,7 @@ export class Product {
   price_EUR: number;
   total_sales: number;
   new_product: boolean;
+  image_url: string;
 }
 
 export class CartItem {

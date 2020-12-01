@@ -6,7 +6,8 @@
       "description": "260g piece",
       "price_EUR": 0.36,
       "total_sales": 13,
-      "new_product": true
+      "new_product": true,
+      "image_url": "https://prod-mercadona.imgix.net/images/df649ff24352a75b9e4e741de8533ba2.jpg?fit=crop&h=600&w=600"
     },
     {
       "id": 2,
@@ -14,7 +15,8 @@
       "description": "190g piece",
       "price_EUR": 0.19,
       "total_sales": 88,
-      "new_product": true
+      "new_product": true,
+      "image_url": "https://prod-mercadona.imgix.net/images/69edef3541bbf3f4b7173c9d617a5698.jpg?fit=crop&h=600&w=600"
     },
     {
       "id": 3,
@@ -22,7 +24,8 @@
       "description": "120g piece",
       "price_EUR": 0.24,
       "total_sales": 12,
-      "new_product": true
+      "new_product": true,
+      "image_url": "https://prod-mercadona.imgix.net/images/d11ecea2207b33a6ff2da9fced47d687.jpg?fit=crop&h=600&w=600"
     },
     {
       "id": 4,
@@ -30,7 +33,8 @@
       "description": "190g piece",
       "price_EUR": 0.29,
       "total_sales": 232,
-      "new_product": true
+      "new_product": true,
+      "image_url": "https://prod-mercadona.imgix.net/images/966d3b08efd621e942126a54e6b81ed4.jpg?fit=crop&h=600&w=600"
     },
     {
       "id": 5,
@@ -38,7 +42,8 @@
       "description": "500g tray",
       "price_EUR": 2.25,
       "total_sales": 3132,
-      "new_product": false
+      "new_product": false,
+      "image_url": "https://prod-mercadona.imgix.net/images/03e5b8dfe12603855c5c3e1cfbfebc28.jpg?fit=crop&h=600&w=600"
     },
     {
       "id": 6,
@@ -46,7 +51,8 @@
       "description": "500g tray",
       "price_EUR": 1.9,
       "total_sales": 1930,
-      "new_product": false
+      "new_product": false,
+      "image_url": "https://prod-mercadona.imgix.net/images/527c0a13ecf06d5097438cd2e8a9ef07.jpg?fit=crop&h=600&w=600"
     },
     {
       "id": 7,
@@ -54,7 +60,8 @@
       "description": "180g piece",
       "price_EUR": 0.31,
       "total_sales": 120,
-      "new_product": false
+      "new_product": false,
+      "image_url": "https://prod-mercadona.imgix.net/images/ee3e71e5011511764af6ba3edc41f4d2.jpg?fit=crop&h=600&w=600"
     },
     {
       "id": 8,
@@ -62,7 +69,8 @@
       "description": "210g piece",
       "price_EUR": 0.42,
       "total_sales": 388,
-      "new_product": false
+      "new_product": false,
+      "image_url": "https://prod-mercadona.imgix.net/images/52a4d34c92d6aeeb8c9a8892a3c8f769.jpg?fit=crop&h=600&w=600"
     },
     {
       "id": 9,
@@ -70,7 +78,8 @@
       "description": "120g piece",
       "price_EUR": 0.19,
       "total_sales": 6340,
-      "new_product": false
+      "new_product": false,
+      "image_url": "https://prod-mercadona.imgix.net/images/f7c744eeadc68f28645c55dac23a136c.jpg?fit=crop&h=600&w=600"
     },
     {
       "id": 10,
@@ -78,7 +87,8 @@
       "description": "300g piece",
       "price_EUR": 0.42,
       "total_sales": 8800,
-      "new_product": false
+      "new_product": false,
+      "image_url": "https://prod-mercadona.imgix.net/images/0e0431fbcd08dac4b7df7dd034760193.jpg?fit=crop&h=600&w=600"
     },
     {
       "id": 11,
@@ -86,7 +96,8 @@
       "description": "160g piece",
       "price_EUR": 0.32,
       "total_sales": 13400,
-      "new_product": false
+      "new_product": false,
+      "image_url": "https://prod-mercadona.imgix.net/images/c5c512407bc265ae901a3b8efc24ac23.jpg?fit=crop&h=600&w=600"
     },
     {
       "id": 12,
@@ -94,7 +105,8 @@
       "description": "300g piece",
       "price_EUR": 0.54,
       "total_sales": 2320,
-      "new_product": false
+      "new_product": false,
+      "image_url": "https://prod-mercadona.imgix.net/images/df502e5ff7cbbc260bfb2a4ae2a2a583.jpg?fit=crop&h=600&w=600"
     },
     {
       "id": 13,
@@ -102,7 +114,8 @@
       "description": "110g piece",
       "price_EUR": 0.41,
       "total_sales": 2100,
-      "new_product": false
+      "new_product": false,
+      "image_url": "https://prod-mercadona.imgix.net/images/32214f2eedbb801a0275c14de2fc7ff6.jpg?fit=crop&h=600&w=600"
     },
     {
       "id": 14,
@@ -110,7 +123,8 @@
       "description": "200g piece",
       "price_EUR": 0.8,
       "total_sales": 800,
-      "new_product": false
+      "new_product": false,
+      "image_url": "https://prod-mercadona.imgix.net/images/5bdb23b103ea75a34562a3bdf877024b.jpg?fit=crop&h=600&w=600"
     },
     {
       "id": 15,
@@ -118,7 +132,8 @@
       "description": "2kg piece",
       "price_EUR": 1.82,
       "total_sales": 7320,
-      "new_product": false
+      "new_product": false,
+      "image_url": "https://prod-mercadona.imgix.net/images/c09ba6e9981ee0651de3864276e8ed9f.jpg?fit=crop&h=600&w=600"
     },
     {
       "id": 16,
@@ -126,44 +141,48 @@
       "description": "550g piece",
       "price_EUR": 1.29,
       "total_sales": 1010,
-      "new_product": false
+      "new_product": false,
+      "image_url": "https://prod-mercadona.imgix.net/images/c80c68c2129b94e788b8e03270c8bfdb.jpg?fit=crop&h=600&w=600"
     }
   ],
   "cart": [
     {
       "product": {
-        "id": 4,
-        "name": "Apple",
-        "description": "190g piece",
-        "price_EUR": 0.29,
-        "total_sales": 232,
-        "new_product": true
+        "id": 7,
+        "name": "Pear",
+        "description": "180g piece",
+        "price_EUR": 0.31,
+        "total_sales": 120,
+        "new_product": false,
+        "image_url": "https://prod-mercadona.imgix.net/images/ee3e71e5011511764af6ba3edc41f4d2.jpg?fit=crop&h=600&w=600"
       },
-      "quantity": 5,
+      "quantity": 1,
       "id": 1
     },
     {
       "product": {
-        "id": 9,
-        "name": "Tangerine",
-        "description": "120g piece",
-        "price_EUR": 0.19,
-        "total_sales": 6340,
-        "new_product": false
+        "id": 10,
+        "name": "Orange",
+        "description": "300g piece",
+        "price_EUR": 0.42,
+        "total_sales": 8800,
+        "new_product": false,
+        "image_url": "https://prod-mercadona.imgix.net/images/0e0431fbcd08dac4b7df7dd034760193.jpg?fit=crop&h=600&w=600"
       },
-      "quantity": 2,
+      "quantity": 1,
       "id": 2
     },
     {
       "product": {
-        "id": 16,
-        "name": "Mango",
-        "description": "550g piece",
-        "price_EUR": 1.29,
-        "total_sales": 1010,
-        "new_product": false
+        "id": 2,
+        "name": "Banana",
+        "description": "190g piece",
+        "price_EUR": 0.19,
+        "total_sales": 88,
+        "new_product": true,
+        "image_url": "https://prod-mercadona.imgix.net/images/69edef3541bbf3f4b7173c9d617a5698.jpg?fit=crop&h=600&w=600"
       },
-      "quantity": 5,
+      "quantity": 1,
       "id": 3
     }
   ]
