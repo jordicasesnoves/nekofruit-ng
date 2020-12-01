@@ -37,6 +37,9 @@ export class ProductGridComponent implements OnInit {
       error(msg) {
         console.log(msg);
       },
+      complete() {
+        console.log('complete triggered');
+      },
     });
   }
 }
