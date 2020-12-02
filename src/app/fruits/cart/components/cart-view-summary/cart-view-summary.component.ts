@@ -33,6 +33,7 @@ export class CartViewSummaryComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {}
 
+  // Triggers when data is ready
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.cartItems.currentValue && this.loading) {
       this.calculateTotal();
@@ -63,6 +64,8 @@ export class CartViewSummaryComponent implements OnInit, OnChanges {
       complete() {},
     });
   }
+
+  // Only runs when quantity > 1
   removeItemQuantity(cartItem: CartItem): void {
     let that = this;
     this.removedItemQuantity$ = this.cartService.removeItemFromCart(cartItem);
@@ -87,6 +90,7 @@ export class CartViewSummaryComponent implements OnInit, OnChanges {
     );
     this.removedProductFromCart$.subscribe({
       next() {
+        // Refresh data
         let index = that.cartItems.map((item) => item.id).indexOf(cartItem.id);
         let price = that.cartItems[index].product.price_EUR;
         let quantity = that.cartItems[index].quantity;

@@ -68,7 +68,6 @@ export class CartService {
   }
 
   // Only runs when quantity is > 1
-  // If the quantity is === 1, then removeProductFromCart() runs
   removeItemFromCart(cartItem: CartItem): Observable<CartItem> {
     let updatedCartItem: CartItem = {
       ...cartItem,
