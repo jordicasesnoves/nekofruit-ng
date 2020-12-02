@@ -30,7 +30,7 @@ export class ProductGridComponent implements OnInit {
   }
 
   addCartItem(cartItem: CartItem): void {
-    this.addedItemToCart$ = this.cartService.addItemToCart(cartItem);
+    this.addedItemToCart$ = this.cartService.addProductToCart(cartItem);
     this.addedItemToCart$.subscribe({
       next(cartItem) {
         alert(

@@ -20,7 +20,7 @@ export class CartService {
     );
   }
 
-  addItemToCart(cartItem: CartItem): Observable<CartItem> {
+  addProductToCart(cartItem: CartItem): Observable<CartItem> {
     // Check if the product is already added to the cart
 
     return new Observable((obs) => {
@@ -65,6 +65,20 @@ export class CartService {
         }
       });
     });
+  }
+
+  addItemToCart(cartItem: CartItem): Observable<CartItem> {
+    let updatedCartItem: CartItem = {
+      ...cartItem,
+      quantity: cartItem.quantity + 1,
+    };
+
+    return this.http
+      .put<CartItem>(`${this.baseUrl}/cart/${cartItem.id}`, updatedCartItem)
+      .pipe(
+        map((cartItem) => cartItem),
+        catchError((err) => throwError(err))
+      );
   }
 
   // Only runs when quantity is > 1
