@@ -1,14 +1,10 @@
 import {
   Component,
-  EventEmitter,
   Input,
   OnChanges,
   OnInit,
-  Output,
-  SimpleChange,
   SimpleChanges,
 } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { CartItem } from 'src/app/shared/models/backendModels';

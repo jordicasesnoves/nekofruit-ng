@@ -13,6 +13,7 @@ export class CartService {
 
   constructor(private http: HttpClient) {}
 
+  // Get all cart items
   getCartItems(): Observable<CartItem[]> {
     return this.http.get<CartItem[]>(`${this.baseUrl}/cart`).pipe(
       map((cartItems) => cartItems),
@@ -20,6 +21,7 @@ export class CartService {
     );
   }
 
+  // Add a product to cart, either has already been added to cart or not
   addProductToCart(cartItem: CartItem): Observable<CartItem> {
     // Check if the product is already added to the cart
 
@@ -67,6 +69,17 @@ export class CartService {
     });
   }
 
+  // Remove a product that is in the cart
+  removeProductFromCart(cartItem: CartItem): Observable<CartItem> {
+    return this.http
+      .delete<CartItem>(`${this.baseUrl}/cart/${cartItem.id}`)
+      .pipe(
+        map((cartItem) => cartItem),
+        catchError((err) => throwError(err))
+      );
+  }
+
+  // Add cart's product quantity
   addItemToCart(cartItem: CartItem): Observable<CartItem> {
     let updatedCartItem: CartItem = {
       ...cartItem,
@@ -81,7 +94,7 @@ export class CartService {
       );
   }
 
-  // Only runs when quantity is > 1
+  // Remove cart's product quantity
   removeItemFromCart(cartItem: CartItem): Observable<CartItem> {
     let updatedCartItem: CartItem = {
       ...cartItem,
@@ -90,15 +103,6 @@ export class CartService {
 
     return this.http
       .put<CartItem>(`${this.baseUrl}/cart/${cartItem.id}`, updatedCartItem)
-      .pipe(
-        map((cartItem) => cartItem),
-        catchError((err) => throwError(err))
-      );
-  }
-
-  removeProductFromCart(cartItem: CartItem): Observable<CartItem> {
-    return this.http
-      .delete<CartItem>(`${this.baseUrl}/cart/${cartItem.id}`)
       .pipe(
         map((cartItem) => cartItem),
         catchError((err) => throwError(err))
