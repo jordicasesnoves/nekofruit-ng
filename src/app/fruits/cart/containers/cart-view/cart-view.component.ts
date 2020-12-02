@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CartItem } from 'src/app/shared/models/backendModels';
-import { ProductsService } from 'src/app/shared/services/products.service';
+import { CartService } from 'src/app/shared/services/cart.service';
 
 @Component({
   selector: 'app-cart-view',
@@ -11,13 +11,13 @@ import { ProductsService } from 'src/app/shared/services/products.service';
 export class CartViewComponent implements OnInit {
   cartItems$: Observable<CartItem[]>;
 
-  constructor(private productsService: ProductsService) {}
+  constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
     this.getCartData();
   }
 
   getCartData(): void {
-    this.cartItems$ = this.productsService.getCartItems();
+    this.cartItems$ = this.cartService.getCartItems();
   }
 }

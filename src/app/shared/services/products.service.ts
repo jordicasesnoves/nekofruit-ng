@@ -44,53 +44,6 @@ export class ProductsService {
       );
   }
 
-  addItemToCart(cartItem: CartItem): Observable<CartItem> {
-    // Check if the product is already added to the cart
-
-    return new Observable((obs) => {
-      let alreadyAdded: boolean;
-      let params = new HttpParams({
-        fromObject: {
-          'product.id': cartItem.product.id.toString(),
-        },
-      });
-
-      let obs1 = this.http.get<CartItem[]>(`${this.baseUrl}/cart`, {
-        params: params,
-      });
-
-      obs1.subscribe((products) => {
-        products.length > 0 ? (alreadyAdded = true) : (alreadyAdded = false);
-
-        if (alreadyAdded) {
-          // product is already added, just modify the quantity property
-          let updatedCartItem: CartItem = {
-            ...cartItem,
-            quantity: products[0].quantity + 1,
-          };
-
-          this.http
-            .put<CartItem>(
-              `${this.baseUrl}/cart/${products[0].id}`,
-              updatedCartItem
-            )
-            .subscribe((cartItem) => {
-              obs.next(cartItem);
-              obs.complete();
-            });
-        } else {
-          // product is not added, make a HTTP post request adding the product
-          this.http
-            .post<CartItem>(`${this.baseUrl}/cart`, cartItem)
-            .subscribe((cartItem) => {
-              obs.next(cartItem);
-              obs.complete();
-            });
-        }
-      });
-    });
-  }
-
   getAllProducts(): Observable<Product[]> {
     let params = new HttpParams({
       fromObject: {
@@ -107,12 +60,5 @@ export class ProductsService {
         map((products) => products),
         catchError((err) => throwError(err))
       );
-  }
-
-  getCartItems(): Observable<CartItem[]> {
-    return this.http.get<CartItem[]>(`${this.baseUrl}/cart`).pipe(
-      map((cartItems) => cartItems),
-      catchError((err) => throwError(err))
-    );
   }
 }

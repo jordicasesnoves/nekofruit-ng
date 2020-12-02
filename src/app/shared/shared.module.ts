@@ -4,6 +4,7 @@ import { ProductItemCardComponent } from './components/product-item-card/product
 import { ProductGridComponent } from './components/product-grid/product-grid.component';
 import { ProductSectionComponent } from './containers/product-section/product-section.component';
 import { ProductsService } from './services/products.service';
+import { CartService } from './services/cart.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { ProductsService } from './services/products.service';
     ProductGridComponent,
     ProductSectionComponent,
   ],
-  providers: [ProductsService],
+  providers: [ProductsService, CartService],
   bootstrap: [],
 })
 export class SharedModule {}

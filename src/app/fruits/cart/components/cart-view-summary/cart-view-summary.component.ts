@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { CartItem } from 'src/app/shared/models/backendModels';
-import { ProductsService } from 'src/app/shared/services/products.service';
+import { CartService } from 'src/app/shared/services/cart.service';
 
 @Component({
   selector: 'app-cart-view-summary',
@@ -28,7 +28,7 @@ export class CartViewSummaryComponent implements OnInit, OnChanges {
   addedItemQuantity$: Observable<CartItem>;
   removedItemQuantity$: Observable<CartItem>;
 
-  constructor(private productsService: ProductsService) {}
+  constructor(private cartService: CartService) {}
 
   ngOnInit(): void {}
 
@@ -48,7 +48,7 @@ export class CartViewSummaryComponent implements OnInit, OnChanges {
 
   addItemQuantity(cartItem: CartItem): void {
     let that = this;
-    this.addedItemQuantity$ = this.productsService.addItemToCart(cartItem);
+    this.addedItemQuantity$ = this.cartService.addItemToCart(cartItem);
     this.addedItemQuantity$.subscribe({
       next(cartItem) {
         // Refresh data

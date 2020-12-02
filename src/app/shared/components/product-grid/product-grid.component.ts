@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CartItem, Product } from '../../models/backendModels';
 import { ProductsService } from '../../services/products.service';
 import { Observable } from 'rxjs';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product-grid',
@@ -17,7 +18,7 @@ export class ProductGridComponent implements OnInit {
 
   addedItemToCart$: Observable<CartItem>;
 
-  constructor(private productsService: ProductsService) {}
+  constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
     // Check if the grid is using pagination
@@ -29,7 +30,7 @@ export class ProductGridComponent implements OnInit {
   }
 
   addCartItem(cartItem: CartItem): void {
-    this.addedItemToCart$ = this.productsService.addItemToCart(cartItem);
+    this.addedItemToCart$ = this.cartService.addItemToCart(cartItem);
     this.addedItemToCart$.subscribe({
       next(cartItem) {
         alert(
