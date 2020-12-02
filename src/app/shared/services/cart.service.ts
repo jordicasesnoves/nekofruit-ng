@@ -75,10 +75,17 @@ export class CartService {
       quantity: cartItem.quantity - 1,
     };
 
-    console.log(updatedCartItem);
-
     return this.http
       .put<CartItem>(`${this.baseUrl}/cart/${cartItem.id}`, updatedCartItem)
+      .pipe(
+        map((cartItem) => cartItem),
+        catchError((err) => throwError(err))
+      );
+  }
+
+  removeProductFromCart(cartItem: CartItem): Observable<CartItem> {
+    return this.http
+      .delete<CartItem>(`${this.baseUrl}/cart/${cartItem.id}`)
       .pipe(
         map((cartItem) => cartItem),
         catchError((err) => throwError(err))

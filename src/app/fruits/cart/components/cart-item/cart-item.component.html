@@ -12,8 +12,14 @@
           {{ item.product.price_EUR | currency: "EUR":"symbol":"1.2-2" }} /piece
         </div>
       </div>
-
-      <span class="text-gray-500">Remove</span>
+      <div class="self-start">
+        <button
+          (click)="onRemoveProduct(item)"
+          class="text-sm text-gray-500 border-gray-400 border px-2 py-1 rounded hover:text-white hover:bg-gray-500"
+        >
+          Remove
+        </button>
+      </div>
     </div>
 
     <div class="h-16 flex flex-col justify-between items-end">
@@ -42,21 +48,23 @@
           </button>
         </ng-container>
         <span class="text-gray-500">{{ item.quantity }}</span>
-        <button
-          (click)="onAddItemQuantity(item)"
-          class="text-white bg-primary rounded-full p-1"
-        >
-          <svg
-            class="h-4 w-4"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
+        <ng-container *ngIf="item.quantity < 99">
+          <button
+            (click)="onAddItemQuantity(item)"
+            class="text-white bg-primary rounded-full p-1"
           >
-            <path
-              fill="currentColor"
-              d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z"
-            />
-          </svg>
-        </button>
+            <svg
+              class="h-4 w-4"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z"
+              />
+            </svg>
+          </button>
+        </ng-container>
       </div>
     </div>
   </div>

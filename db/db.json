@@ -145,58 +145,5 @@
       "image_url": "https://prod-mercadona.imgix.net/images/c80c68c2129b94e788b8e03270c8bfdb.jpg?fit=crop&h=600&w=600"
     }
   ],
-  "cart": [
-    {
-      "product": {
-        "id": 10,
-        "name": "Orange",
-        "description": "300g piece",
-        "price_EUR": 0.42,
-        "total_sales": 8800,
-        "new_product": false,
-        "image_url": "https://prod-mercadona.imgix.net/images/0e0431fbcd08dac4b7df7dd034760193.jpg?fit=crop&h=600&w=600"
-      },
-      "quantity": 1,
-      "id": 2
-    },
-    {
-      "product": {
-        "id": 2,
-        "name": "Banana",
-        "description": "190g piece",
-        "price_EUR": 0.19,
-        "total_sales": 88,
-        "new_product": true,
-        "image_url": "https://prod-mercadona.imgix.net/images/69edef3541bbf3f4b7173c9d617a5698.jpg?fit=crop&h=600&w=600"
-      },
-      "quantity": 1,
-      "id": 3
-    },
-    {
-      "product": {
-        "id": 4,
-        "name": "Apple",
-        "description": "190g piece",
-        "price_EUR": 0.29,
-        "total_sales": 232,
-        "new_product": true,
-        "image_url": "https://prod-mercadona.imgix.net/images/966d3b08efd621e942126a54e6b81ed4.jpg?fit=crop&h=600&w=600"
-      },
-      "quantity": 1,
-      "id": 4
-    },
-    {
-      "product": {
-        "id": 15,
-        "name": "Pineapple",
-        "description": "2kg piece",
-        "price_EUR": 1.82,
-        "total_sales": 7320,
-        "new_product": false,
-        "image_url": "https://prod-mercadona.imgix.net/images/c09ba6e9981ee0651de3864276e8ed9f.jpg?fit=crop&h=600&w=600"
-      },
-      "quantity": 1,
-      "id": 5
-    }
-  ]
+  "cart": []
 }

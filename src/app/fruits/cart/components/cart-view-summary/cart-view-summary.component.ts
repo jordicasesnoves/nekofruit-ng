@@ -27,6 +27,7 @@ export class CartViewSummaryComponent implements OnInit, OnChanges {
   // Outputs from cart-item component
   addedItemQuantity$: Observable<CartItem>;
   removedItemQuantity$: Observable<CartItem>;
+  removedProductFromCart$: Observable<CartItem>;
 
   constructor(private cartService: CartService) {}
 
@@ -67,11 +68,30 @@ export class CartViewSummaryComponent implements OnInit, OnChanges {
     this.removedItemQuantity$ = this.cartService.removeItemFromCart(cartItem);
     this.removedItemQuantity$.subscribe({
       next(cartItem: CartItem) {
-        console.log(cartItem);
         // Refresh data
         let index = that.cartItems.map((item) => item.id).indexOf(cartItem.id);
         that.cartItems[index].quantity = cartItem.quantity;
         that.total = that.total - that.cartItems[index].product.price_EUR;
+      },
+      error(msg) {
+        console.log(msg);
+      },
+      complete() {},
+    });
+  }
+
+  removeProductFromCart(cartItem: CartItem): void {
+    let that = this;
+    this.removedProductFromCart$ = this.cartService.removeProductFromCart(
+      cartItem
+    );
+    this.removedProductFromCart$.subscribe({
+      next() {
+        let index = that.cartItems.map((item) => item.id).indexOf(cartItem.id);
+        let price = that.cartItems[index].product.price_EUR;
+        let quantity = that.cartItems[index].quantity;
+        that.cartItems.splice(index, 1);
+        that.total = that.total - price * quantity;
       },
       error(msg) {
         console.log(msg);

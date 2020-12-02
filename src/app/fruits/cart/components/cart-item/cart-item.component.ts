@@ -11,6 +11,7 @@ export class CartItemComponent implements OnInit {
 
   @Output() removedItemQuantity = new EventEmitter<CartItem>();
   @Output() addedItemQuantity = new EventEmitter<CartItem>();
+  @Output() removedProduct = new EventEmitter<CartItem>();
 
   constructor() {}
 
@@ -22,5 +23,9 @@ export class CartItemComponent implements OnInit {
 
   onAddItemQuantity(item: CartItem): void {
     this.addedItemQuantity.emit(item);
+  }
+
+  onRemoveProduct(item: CartItem): void {
+    this.removedProduct.emit(item);
   }
 }
