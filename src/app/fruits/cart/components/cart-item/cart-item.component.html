@@ -24,21 +24,23 @@
         }}
       </span>
       <div class="flex space-x-2">
-        <button
-          (click)="onRemoveItemQuantity(item)"
-          class="text-white bg-red-500 rounded-full p-1"
-        >
-          <svg
-            class="h-4 w-4"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
+        <ng-container *ngIf="item.quantity > 1">
+          <button
+            (click)="onRemoveItemQuantity(item)"
+            class="text-white bg-red-500 rounded-full p-1"
           >
-            <path
-              fill="currentColor"
-              d="M19,11H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z"
-            />
-          </svg>
-        </button>
+            <svg
+              class="h-4 w-4"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M19,11H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z"
+              />
+            </svg>
+          </button>
+        </ng-container>
         <span class="text-gray-500">{{ item.quantity }}</span>
         <button
           (click)="onAddItemQuantity(item)"

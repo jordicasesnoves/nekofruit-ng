@@ -16,7 +16,9 @@ export class CartItemComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onRemoveItemQuantity(item: CartItem): void {}
+  onRemoveItemQuantity(item: CartItem): void {
+    this.removedItemQuantity.emit(item);
+  }
 
   onAddItemQuantity(item: CartItem): void {
     this.addedItemQuantity.emit(item);

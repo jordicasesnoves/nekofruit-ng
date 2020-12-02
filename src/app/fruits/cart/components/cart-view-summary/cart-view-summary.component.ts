@@ -62,5 +62,21 @@ export class CartViewSummaryComponent implements OnInit, OnChanges {
       complete() {},
     });
   }
-  removeItemQuantity(cartItem: CartItem): void {}
+  removeItemQuantity(cartItem: CartItem): void {
+    let that = this;
+    this.removedItemQuantity$ = this.cartService.removeItemFromCart(cartItem);
+    this.removedItemQuantity$.subscribe({
+      next(cartItem: CartItem) {
+        console.log(cartItem);
+        // Refresh data
+        let index = that.cartItems.map((item) => item.id).indexOf(cartItem.id);
+        that.cartItems[index].quantity = cartItem.quantity;
+        that.total = that.total - that.cartItems[index].product.price_EUR;
+      },
+      error(msg) {
+        console.log(msg);
+      },
+      complete() {},
+    });
+  }
 }

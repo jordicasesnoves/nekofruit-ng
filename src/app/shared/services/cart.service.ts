@@ -66,4 +66,22 @@ export class CartService {
       });
     });
   }
+
+  // Only runs when quantity is > 1
+  // If the quantity is === 1, then removeProductFromCart() runs
+  removeItemFromCart(cartItem: CartItem): Observable<CartItem> {
+    let updatedCartItem: CartItem = {
+      ...cartItem,
+      quantity: cartItem.quantity - 1,
+    };
+
+    console.log(updatedCartItem);
+
+    return this.http
+      .put<CartItem>(`${this.baseUrl}/cart/${cartItem.id}`, updatedCartItem)
+      .pipe(
+        map((cartItem) => cartItem),
+        catchError((err) => throwError(err))
+      );
+  }
 }
