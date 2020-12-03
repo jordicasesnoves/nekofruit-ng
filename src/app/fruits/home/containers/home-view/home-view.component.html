@@ -10,13 +10,11 @@
     >
   </div>
 
-  <app-product-section
-    [productSectionInfo]="topSellingProductsSectionInfo"
-    [products]="topSellingProducts$ | async"
-  ></app-product-section>
+  <app-product-section [products]="topSellingProducts$ | async">
+    Top selling
+  </app-product-section>
 
-  <app-product-section
-    [productSectionInfo]="newProductsSectionInfo"
-    [products]="newProducts$ | async"
-  ></app-product-section>
+  <app-product-section [products]="newProducts$ | async">
+    New products
+  </app-product-section>
 </div>

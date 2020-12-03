@@ -1,10 +1,7 @@
 <div>
   <div class="text-4xl font-medium mb-8">
     <div class="flex items-center space-x-2">
-      <span *ngIf="productSectionInfo.emoji">{{
-        productSectionInfo.emoji
-      }}</span>
-      <span>{{ productSectionInfo.title }}</span>
+      <ng-content></ng-content>
     </div>
   </div>
 

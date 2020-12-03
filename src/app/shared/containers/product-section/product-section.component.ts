@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../../models/backendModels';
-import { ProductSectionInfo } from '../../models/product-section';
 
 @Component({
   selector: 'app-product-section',
@@ -9,7 +8,6 @@ import { ProductSectionInfo } from '../../models/product-section';
 })
 export class ProductSectionComponent implements OnInit {
   @Input() products: Product[];
-  @Input() productSectionInfo: ProductSectionInfo;
 
   constructor() {}
 
