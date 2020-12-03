@@ -9,23 +9,23 @@ import { CartItem } from 'src/app/shared/models/backendModels';
 export class CartItemComponent implements OnInit {
   @Input() item: CartItem;
 
-  @Output() removedItemQuantity = new EventEmitter<CartItem>();
-  @Output() addedItemQuantity = new EventEmitter<CartItem>();
-  @Output() removedProduct = new EventEmitter<CartItem>();
+  @Output() removedItemQuantity = new EventEmitter();
+  @Output() addedItemQuantity = new EventEmitter();
+  @Output() removedProduct = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  onRemoveItemQuantity(item: CartItem): void {
-    this.removedItemQuantity.emit(item);
+  onRemoveItemQuantity(): void {
+    this.removedItemQuantity.emit();
   }
 
-  onAddItemQuantity(item: CartItem): void {
-    this.addedItemQuantity.emit(item);
+  onAddItemQuantity(): void {
+    this.addedItemQuantity.emit();
   }
 
-  onRemoveProduct(item: CartItem): void {
-    this.removedProduct.emit(item);
+  onRemoveProduct(): void {
+    this.removedProduct.emit();
   }
 }

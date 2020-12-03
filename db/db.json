@@ -145,5 +145,19 @@
       "image_url": "https://prod-mercadona.imgix.net/images/c80c68c2129b94e788b8e03270c8bfdb.jpg?fit=crop&h=600&w=600"
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "product": {
+        "id": 10,
+        "name": "Orange",
+        "description": "300g piece",
+        "price_EUR": 0.42,
+        "total_sales": 8800,
+        "new_product": false,
+        "image_url": "https://prod-mercadona.imgix.net/images/0e0431fbcd08dac4b7df7dd034760193.jpg?fit=crop&h=600&w=600"
+      },
+      "quantity": 1,
+      "id": 1
+    }
+  ]
 }
