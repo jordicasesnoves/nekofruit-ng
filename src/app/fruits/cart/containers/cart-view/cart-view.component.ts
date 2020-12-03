@@ -43,11 +43,12 @@ export class CartViewComponent implements OnInit {
   }
 
   calculateTotal(): void {
-    this.total = 0;
+    let finalTotal = 0;
     this.cartItems.forEach(
       (item) =>
-        (this.total = this.total + item.product.price_EUR * item.quantity)
+        (finalTotal = finalTotal + item.product.price_EUR * item.quantity)
     );
+    this.total = finalTotal;
   }
 
   addedItemQuantity(item: CartItem): void {
