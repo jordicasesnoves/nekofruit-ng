@@ -12,7 +12,7 @@ import { on } from 'process';
 })
 export class CatalogViewComponent implements OnInit, OnDestroy {
   // Database data
-  catalogProducts$: Observable<Product[]>;
+  catalogProducts: Product[] = [];
 
   // Pagination data
   totalProducts: number;
@@ -56,22 +56,18 @@ export class CatalogViewComponent implements OnInit, OnDestroy {
   }
 
   getCatalogProducts(): void {
-    let that = this;
-    this.subscription = this.productsService.getAllProducts().subscribe({
-      next(data) {
-        that.totalProducts = data.length;
-        that.totalPages = Math.ceil(data.length / that.productsPerPage);
-        that.calculatePagination();
+    this.subscription = this.productsService.getAllProducts().subscribe(
+      (data) => {
+        this.catalogProducts = data;
+        this.totalProducts = data.length;
+        this.totalPages = Math.ceil(data.length / this.productsPerPage);
+        this.calculatePagination();
+        this.loading = false;
       },
-      error(err) {
+      (err) => {
         console.log(err);
-      },
-      complete() {
-        that.loading = false;
-      },
-    });
-
-    this.catalogProducts$ = this.productsService.getAllProducts();
+      }
+    );
   }
 
   calculatePagination(): void {

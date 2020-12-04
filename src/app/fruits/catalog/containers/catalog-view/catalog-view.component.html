@@ -1,4 +1,4 @@
-<ng-container *ngIf="this.loading == false; else elseBlock">
+<ng-container *ngIf="!this.loading; else elseBlock">
   <div class="flex flex-col space-y-8">
     <ng-container *ngIf="this.currentPage <= this.totalPages; else elseBlock">
       <div class="text-4xl font-medium">
@@ -8,7 +8,7 @@
       <app-product-grid
         [productsPerPage]="productsPerPage"
         [currentPage]="currentPage"
-        [products]="catalogProducts$ | async"
+        [products]="catalogProducts"
       ></app-product-grid>
       <app-catalog-paginate
         (navigateNextPage)="onNextPage()"
