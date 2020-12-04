@@ -11,6 +11,8 @@
         [products]="catalogProducts$ | async"
       ></app-product-grid>
       <app-catalog-paginate
+        (navigateNextPage)="onNextPage()"
+        (navigatePrevPage)="onPrevPage()"
         [productsPerPage]="productsPerPage"
         [currentPage]="currentPage"
         [totalProducts]="totalProducts"

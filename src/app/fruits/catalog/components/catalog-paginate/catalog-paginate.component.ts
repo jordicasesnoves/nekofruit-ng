@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,19 +14,18 @@ export class CatalogPaginateComponent implements OnInit {
   @Input() prevPage: number;
   @Input() nextPage: number;
 
+  @Output() navigateNextPage = new EventEmitter();
+  @Output() navigatePrevPage = new EventEmitter();
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
   onNextPage(): void {
-    this.router.navigate(['/catalog'], {
-      queryParams: { page: this.nextPage },
-    });
+    this.navigateNextPage.emit();
   }
 
   onPrevPage(): void {
-    this.router.navigate(['/catalog'], {
-      queryParams: { page: this.prevPage },
-    });
+    this.navigatePrevPage.emit();
   }
 }
