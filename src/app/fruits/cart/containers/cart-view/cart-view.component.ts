@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { CartItem } from 'src/app/shared/models/backendModels';
 import { CartService } from 'src/app/shared/services/cart.service';
 
@@ -7,7 +8,7 @@ import { CartService } from 'src/app/shared/services/cart.service';
   templateUrl: './cart-view.component.html',
   styleUrls: ['./cart-view.component.scss'],
 })
-export class CartViewComponent implements OnInit {
+export class CartViewComponent implements OnInit, OnDestroy {
   cartItems: CartItem[] = [];
   total: number = 0;
 
@@ -15,10 +16,16 @@ export class CartViewComponent implements OnInit {
   error: boolean = false;
   empty: boolean = false;
 
+  private subscriptions = new Subscription();
+
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
     this.getCartData();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
   getCartData(): void {
@@ -52,23 +59,29 @@ export class CartViewComponent implements OnInit {
   }
 
   addedItemQuantity(item: CartItem): void {
-    this.cartService.addItemToCart(item).subscribe(
-      () => this.getCartData(),
-      (err) => console.log(err)
+    this.subscriptions.add(
+      this.cartService.addItemToCart(item).subscribe(
+        () => this.getCartData(),
+        (err) => console.log(err)
+      )
     );
   }
 
   removedItemQuantity(item: CartItem): void {
-    this.cartService.removeItemFromCart(item).subscribe(
-      () => this.getCartData(),
-      (err) => console.log(err)
+    this.subscriptions.add(
+      this.cartService.removeItemFromCart(item).subscribe(
+        () => this.getCartData(),
+        (err) => console.log(err)
+      )
     );
   }
 
   removedProduct(item: CartItem): void {
-    this.cartService.removeProductFromCart(item).subscribe(
-      () => this.getCartData(),
-      (err) => console.log(err)
+    this.subscriptions.add(
+      this.cartService.removeProductFromCart(item).subscribe(
+        () => this.getCartData(),
+        (err) => console.log(err)
+      )
     );
   }
 }

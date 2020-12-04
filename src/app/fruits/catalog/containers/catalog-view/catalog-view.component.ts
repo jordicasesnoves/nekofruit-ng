@@ -26,8 +26,7 @@ export class CatalogViewComponent implements OnInit, OnDestroy {
 
   loading: boolean = true;
 
-  subscription: Subscription;
-  subscription2: Subscription;
+  private subscriptions = new Subscription();
 
   constructor(
     private productsService: ProductsService,
@@ -36,37 +35,40 @@ export class CatalogViewComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.subscription2 = this.route.queryParams.subscribe((params) => {
-      this.prevPage = undefined;
-      this.nextPage = undefined;
-      this.currentPage = parseInt(params['page']);
+    this.subscriptions.add(
+      this.route.queryParams.subscribe((params) => {
+        this.prevPage = undefined;
+        this.nextPage = undefined;
+        this.currentPage = parseInt(params['page']);
 
-      // Prevent calculating pagination when data is not ready yet
-      if (!this.loading) {
-        this.calculatePagination();
-      }
-    });
+        // Prevent calculating pagination when data is not ready yet
+        if (!this.loading) {
+          this.calculatePagination();
+        }
+      })
+    );
 
     this.getCatalogProducts();
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-    this.subscription2.unsubscribe();
+    this.subscriptions.unsubscribe();
   }
 
   getCatalogProducts(): void {
-    this.subscription = this.productsService.getAllProducts().subscribe(
-      (data) => {
-        this.catalogProducts = data;
-        this.totalProducts = data.length;
-        this.totalPages = Math.ceil(data.length / this.productsPerPage);
-        this.calculatePagination();
-        this.loading = false;
-      },
-      (err) => {
-        console.log(err);
-      }
+    this.subscriptions.add(
+      this.productsService.getAllProducts().subscribe(
+        (data) => {
+          this.catalogProducts = data;
+          this.totalProducts = data.length;
+          this.totalPages = Math.ceil(data.length / this.productsPerPage);
+          this.calculatePagination();
+          this.loading = false;
+        },
+        (err) => {
+          console.log(err);
+        }
+      )
     );
   }
 
