@@ -145,5 +145,19 @@
       "image_url": "https://prod-mercadona.imgix.net/images/c80c68c2129b94e788b8e03270c8bfdb.jpg?fit=crop&h=600&w=600"
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "product": {
+        "id": 3,
+        "name": "Tomatoe",
+        "description": "120g piece",
+        "price_EUR": 0.24,
+        "total_sales": 12,
+        "new_product": true,
+        "image_url": "https://prod-mercadona.imgix.net/images/d11ecea2207b33a6ff2da9fced47d687.jpg?fit=crop&h=600&w=600"
+      },
+      "quantity": 1,
+      "id": 1
+    }
+  ]
 }
