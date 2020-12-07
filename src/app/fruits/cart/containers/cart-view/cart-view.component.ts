@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CartItem } from 'src/app/shared/models/backendModels';
 import { CartService } from 'src/app/shared/services/cart.service';
